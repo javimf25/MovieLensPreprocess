@@ -26,7 +26,7 @@ public class Main {
 
                     if (number == 0) {
 
-                        String header = "id" + "," + "MovieTitle" + "," + "ReleaseDate" + "," + "Genere1" + "," + "Genere2" + "," + "Genere3" + "\n";
+                        String header = "id" + "," + "MovieTitle" + "," + "ReleaseDate" + "," + "Genere1" + "," + "Genere2" + "," + "\n";
                         writer.write(header);
                         number = number + 1;
                     } else {
@@ -41,11 +41,7 @@ public class Main {
                         } else if (aux.getGenere2() != "") {
                             String p = aux.getMovieid() + "," + aux.getMovietitle() + "," + aux.getReleasedate() + "," + aux.getGenere1() + "," + aux.getGenere2() + "\n";
                             writer.write(p);
-                        } else {
-                            String p = aux.getMovieid() + "," + aux.getMovietitle() + "," + aux.getReleasedate() + "," + aux.getGenere1() + "," + aux.getGenere2() + "," + aux.getGenere3() + "\n";
-                            writer.write(p);
                         }
-
                     }
                 }
 
@@ -88,7 +84,7 @@ writer.close();
                     String[] data = row3.split(",");
 
                     if (number2 == 0) {
-                        String header="MovieTitle"+","+"ReleaseDate"+","+"Genere1"+","+"Genere2"+","+"Genere3"+","+"AgeGrader"+","+"GenderGrader"+","+"OccupationGrader"+","+"RatingGrader"+"\n";
+                        String header="MovieTitle"+","+"ReleaseDate"+","+"Genere1"+","+"Genere2"+","+"Userid"+","+"AgeGrader"+","+"GenderGrader"+","+"OccupationGrader"+","+"RatingGrader"+"\n";
                         writer2.write(header);
                         number2 = number2 + 1;
                     } else {
@@ -97,7 +93,7 @@ writer.close();
                        if(Integer.parseInt(data[1])<movies.size() && Integer.parseInt(data[0])<users.size()) {
                            Movies moviefound = movies.get(Integer.parseInt(data[1]));
                            User userfound = users.get(Integer.parseInt(data[0]));
-                           UserMovies joined = new UserMovies(moviefound.getMovietitle(), moviefound.getReleasedate(), moviefound.getGenere1(), moviefound.getGenere2(), moviefound.getGenere3(), userfound.getAge(),
+                           UserMovies joined = new UserMovies(moviefound.getMovietitle(), moviefound.getReleasedate(), moviefound.getGenere1(), moviefound.getGenere2(),userfound.getUserid(), userfound.getAge(),
                                    userfound.getGender(), userfound.getOccupation(), Integer.parseInt(data[2]));
                            String toWrite = joined.getCsvFile();
                            writer2.write(toWrite);

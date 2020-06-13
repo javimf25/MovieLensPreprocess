@@ -81,7 +81,7 @@ ArrayList<String> genereNames = new ArrayList<String>();
         genereNames.add("Horror");
         genereNames.add("Musical");
         genereNames.add("Mystery");
-        genereNames.add("Roamnce");
+        genereNames.add("Romance");
         genereNames.add("SciFi");
         genereNames.add("Thriller");
         genereNames.add("war");
